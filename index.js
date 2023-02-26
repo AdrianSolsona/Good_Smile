@@ -1,8 +1,9 @@
 const express = require('express');
-const db = require('./db/db');
+const db = require('./db/db.js');
 const {Rol} = require ("./models/index");
 const {User} = require ("./models/index");
 const {Dentist} = require ("./models/index");
+const {Speciality} = require ("./models/index");
 const app = express();
 
 
@@ -72,6 +73,8 @@ app.post("/dentists", async (req,res) =>{
 
 });
 
+
+
 app.put("/dentists/:id", async (req, res) =>{
     const dentistId = req.params.id
     const name = req.body.name
@@ -79,6 +82,25 @@ app.put("/dentists/:id", async (req, res) =>{
     return res.json(updateDentist)
 })
 
+app.get("/Specialities", (req,res) =>{
+    return res.send("Your Specialities is")
+});
+
+app.post("/Specialities", async (req,res) =>{
+
+    const { name, description} = req.body;
+
+    const newSpeciality = {
+        name : name,
+       description : description
+    }
+
+    // Guardar la informacion
+    const speciality = await Speciality.create(newSpeciality)
+
+    return res.json(speciality)
+
+});
 
 
 
@@ -88,5 +110,7 @@ app.put("/dentists/:id", async (req, res) =>{
 
 
 
-//Starting server
+// Starting server
 app.listen(PORT, () => console.log("Server on port " + PORT));
+
+
