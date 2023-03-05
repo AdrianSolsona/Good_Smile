@@ -54,7 +54,7 @@ Technologies used:
 2. ` $ npm install `
 3. We connect our repository with the database 
 4. ``` $ Run the ``` migrations ```. 
-5. ``` $ Execute the seeders ``` 6. 
+5. ``` $ Execute the seeders ```. 
 6. ``` $ npm run dev ``` $ npm run dev ```.
 
 ## Endpoints
