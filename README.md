@@ -25,7 +25,7 @@
 ## Objective
 This project required a functional API connected to a database for a business, in this case a dental clinic, with one-to-many and one-to-one relationships as well as verification tokens for access to certain sections of the clinic's website depending on the type of user.
 ## About the project
-We have created an api connected to your database for a dental clinic where the user can register and login, as well as access different parts of the database depending on the type of user that has been registered.
+We have created an api connected to the database for a dental clinic where the user can register and login, as well as access different parts of the database depending on the type of user that has been registered.
 
 ## Installation 🚀
  ```
@@ -55,8 +55,7 @@ Technologies used:
 3. We connect our repository with the database 
 4. ``` $ Run the ``` migrations ```. 
 5. ``` $ Execute the seeders ``` 6. 
-6. ``` $ npm run dev ``` $ npm run dev ``` 
-7. ...
+6. ``` $ npm run dev ``` $ npm run dev ```.
 
 ## Endpoints
 <details>
