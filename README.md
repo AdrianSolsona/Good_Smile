@@ -23,9 +23,9 @@
 </details>
 
 ## Objective
-This project required a functional API connected to a database for a business, in this case a dental clinic, with one-to-many, one-to-one and many-to-many relationships as well as verification tokens for access to certain sections of the clinic's website depending on the type of user.
+This project required a functional API connected to a database for a business, in this case a dental clinic, with one-to-many and one-to-one relationships as well as verification tokens for access to certain sections of the clinic's website depending on the type of user.
 ## About the project
-We have created an api connected to your database for a veterinary clinic where the user can register and login, as well as access different parts of the database depending on the type of user that has been registered.
+We have created an api connected to your database for a dental clinic where the user can register and login, as well as access different parts of the database depending on the type of user that has been registered.
 
 ## Installation 🚀
  ```
@@ -304,7 +304,7 @@ To achieve my goal I have gathered information from:
 - Npm: https://www.npmjs.com/
 
 ## Conclusion
-We managed to raise and develop the proposed objective of creating an api connected to its database for a veterinary clinic using sequelize node and javascipt technologies. It addressed the main aspects of the project. as the possibility of registration and login, modification and deletion of appointments, and display of treatments, access via tokens to different routes etc..
+We managed to raise and develop the proposed objective of creating an api connected to its database for a dental clinic using sequelize node and javascipt technologies. It addressed the main aspects of the project. as the possibility of registration and login, modification and deletion of appointments, and display of treatments, access via tokens to different routes etc..
 
 It was possible to identify the main design problems of the database, the various difficulties that arose especially with the method of verification of the token and the different relationships between the tables of the database that were managed to address adequately so that all the functionalities foreseen in the basic design of the project were correctly carried out.
 
@@ -323,3 +323,4 @@ I thank my colleagues for their time dedicated to this project:
 <a href = "mailto:solsona1008@gmail.com"><img src="https://img.shields.io/badge/Gmail-C6362C?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
 <a href="https://www.linkedin.com/in/adrian-solsona-miralles-415b27182/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
 </p>
+<a href="https://www.linkedin.com/in/jose-ramon-rosario-36721a242/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
