@@ -23,12 +23,8 @@ module.exports = (sequelize, DataTypes) => {
   Dentist.init({
     user_id : DataTypes.INTEGER,
     speciality_id: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    surname: DataTypes.STRING,
-    email: DataTypes.STRING,
-    address: DataTypes.STRING,
     registration_number: DataTypes.STRING,
-    phone: DataTypes.STRING
+    
   }, {
     sequelize,
     modelName: 'Dentist',

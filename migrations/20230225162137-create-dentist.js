@@ -23,22 +23,7 @@ module.exports = {
           key: "id"
         }
       },
-      name: {
-        type: Sequelize.STRING
-      },
-      surname: {
-        type: Sequelize.STRING
-      },
-      email: {
-        type: Sequelize.STRING
-      },
-      address: {
-        type: Sequelize.STRING
-      },
       registration_number: {
-        type: Sequelize.STRING
-      },
-      phone: {
         type: Sequelize.STRING
       },
       createdAt: {

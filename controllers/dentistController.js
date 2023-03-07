@@ -7,17 +7,12 @@ const dentistController = {};
 dentistController.createDentist = async (req, res) => {
 
     try {
-        const { user_id, speciality_id, name, surname, email, address,registration_number,phone } = req.body;
+        const { user_id, speciality_id, registration_number } = req.body;
 
         const newDentist = {
             user_id : user_id,
             speciality_id : speciality_id,
-            name : name,
-            surname : surname,
-            email : email,
-            address : address,
             registration_number : registration_number,
-            phone : phone
         }
 
    const dentist = await Dentist.create(newDentist)
@@ -66,8 +61,7 @@ dentistController.getDentistById = async (req, res) => {
                     include:{
                         model: Pacient,
                         attributes: {
-                            exclude: ["user_id","createdAt", "updatedAt"],
-                            include: ["name", "surname", "address", "email", "phone"]
+                            exclude: ["createdAt", "updatedAt"]
                         },
                     },
                 },

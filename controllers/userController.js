@@ -9,7 +9,7 @@ userController.createUser = async (req,res) => {
 
     try{
         
-        const { username, email, password, rol_id} = req.body;
+        const { username, email, password, rol_id, name, surname, address, phone, date_of_birth, gender, postcode} = req.body;
 
         const encryptedPassword = bcrypt.hashSync(password, 10);
 
@@ -17,7 +17,14 @@ userController.createUser = async (req,res) => {
         rol_id : rol_id,
         username : username,
         password : encryptedPassword,
-        email : email
+        email : email,
+        name : name,
+        surname : surname,
+        address : address,
+        phone : phone,
+        date_of_birth : date_of_birth,
+        gender : gender,
+        postcode : postcode
         })
 
         return res.json(
