@@ -15,7 +15,8 @@ const verifyToken = (req, res, next) => {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
         req.userId = decoded.userId;
-        req.roleId = decoded.roleId;
+        req.rolId = decoded.rolId;
+        req.email = decoded.email;
 
         next();
         //Pick up the possible error
