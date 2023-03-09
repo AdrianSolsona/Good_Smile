@@ -43,74 +43,22 @@ let citasActivas = await Appointment.findAll({
   });
 }
 
-//Function to display the appointment by appointment id
-/*
-appointmentController.getAppointmentById = async (req, res) => {
-
-    
-
-    try{
-
-        const appointmentId = req.userId;
-
-        const appointment = await Appointment.findByPk(appointmentId,{
-
-            where : {
-                user_id : appointmentId
-            },
-
-                include: [
-                    Treatment,
-                    {
-                        model:Treatment,
-                        attributes: {
-                            exclude: ["createdAt", "updatedAt"]
-                        }
-                        },
-                    {
-                        model: Pacient,
-                        where: {
-                            user_id: req.userId
-                        },
-                        attributes: {
-                            exclude: ["user_id", "createdAt", "updatedAt"]
-                        },
-                    },
-                    {
-                        model: Dentist,
-                        attributes: {
-                            exclude: ["user_id","registration_number", "createdAt", "updatedAt"]
-                        },
-                        
-                    },
-                ],
-                attributes: {
-                    exclude: ["pacient_id", "dentist_id", "treatment_id", "createdAt", "updatedAt"]
-                }
-        })
-
-        return res.json(appointment);
-
-    }catch(error){
-        return res.status(500).send(error.message)
-    }
-};
-*/
+//function to display the appointments the user has
 
 appointmentController.getAppointmentById = async (req, res) => {
     try {
         const userId = req.userId;
 
-        // Busco en la tabla Pacientes el registro que corresponda al userId del token
+        // I search the Patients table for the record corresponding to the token's userId.
         const paciente = await Pacient.findOne({ where: { user_id: userId } });
     
         if (!paciente) {
 
-          // Si no se encuentra un registro en Pacientes, devuelvo un mensaje de error
-          return res.status(404).json({ message: "No se encontró ningún paciente asociado a este usuario" });
+          // If a record is not found in Patients, I return an error message.
+          return res.status(404).json({ message: "No patients were found associated with this user"});
         }
     
-        // Si encuentra un registro en Pacientes, obtengo su pacient_id
+        // If I find a record in Patients, I get its pacient_id
         const pacientId = paciente.id;
     
       const appointments = await Appointment.findAll({
@@ -156,19 +104,16 @@ appointmentController.putAppointmentById = async (req, res) =>{
     try{
         const userId = req.userId;
 
-        // Busco en la tabla Pacientes el registro que corresponda al userId del token
         const paciente = await Pacient.findOne({ where: { user_id: userId } });
     
         if (!paciente) {
 
-          // Si no se encuentra un registro en Pacientes, devuelvo un mensaje de error
-          return res.status(404).json({ message: "No se encontró ningún paciente asociado a este usuario" });
+          // If a patient record is not found in appointment, I return an error message.
+          return res.status(404).json({ message: "No patient found associated with this user"});
         }
-    
-        // Si encuentra un registro en Pacientes, obtengo su pacient_id
+
         const pacientId = paciente.id;
         
-
         const {hour,status,observations,date} = req.body;
 
         const updateAppointment = await Appointment.update({hour:hour,status:status,observations:observations,date:date},{where: { pacient_id:pacientId}})
@@ -181,31 +126,12 @@ appointmentController.putAppointmentById = async (req, res) =>{
     }
 };
 
-/*
-appointmentController.putAppointmentById = async (req, res) =>{
-
-    try{
-
-        const appointmentId = req.params.id
-
-        const {hour,status,observations,date} = req.body;
-
-        const updateAppointment = await Appointment.update({hour:hour,status:status,observations:observations,date:date}, {where:{id:appointmentId}})
-
-        return res.json(updateAppointment)
-
-    }catch(error){
-
-        return res.status(500).send(error.message)
-    }
-};
-*/
 //Function for appointment delete
 
 appointmentController.deleteAppointmentById = async(req, res) => {
 
     try{
-
+        
         const appointmentId = req.params.id
     
         const deleteAppointment = await Appointment.destroy({where: { id: appointmentId}})
