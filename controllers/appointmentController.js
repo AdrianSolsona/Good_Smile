@@ -131,10 +131,20 @@ appointmentController.putAppointmentById = async (req, res) =>{
 appointmentController.deleteAppointmentById = async(req, res) => {
 
     try{
-        
-        const appointmentId = req.params.id
+
+        const userId = req.userId;
+
+        const paciente = await Pacient.findOne({ where: { user_id: userId } });
     
-        const deleteAppointment = await Appointment.destroy({where: { id: appointmentId}})
+        if (!paciente) {
+
+          // If a patient record is not found in appointment, I return an error message.
+          return res.status(404).json({ message: "No patient found associated with this user"});
+        }
+
+        const pacientId = paciente.id;
+    
+        const deleteAppointment = await Appointment.destroy({where: { pacient_id:pacientId}})
 
         return res.json(deleteAppointment);
 
