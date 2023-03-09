@@ -1,3 +1,4 @@
+
 const { Pacient, Appointment, Dentist, Treatment} = require("../models");
 
 const pacientController = {};
@@ -85,65 +86,49 @@ pacientController.getPacientById = async (req, res) => {
         ]
     })
     
-        /*
-            include: [
-                Appointment,
-                {
-                    model: Appointment,
-                    attributes: {
-                        exclude: ["pacient_id", "createdAt", "updatedAt"]
-                    },
-                }
-            ],
-            attributes: {
-                exclude: ["user_id", "createdAt", "updatedAt"]
-            }
-        }
-    )
-*/
     return res.json(pacientAppointment);
 
-    }catch(error){
-        return res.status(500).send(error.message)
-    }
+}catch(error){
+    return res.status(500).send(error.message)
+}
 };
 
 //Function for Treatment modify
 
 pacientController.putPacientById = async (req, res) =>{
 
-    try{
+try{
 
-        const pacientId = req.params.id
+    const pacientId = req.params.id
 
-        const { user_id, speciality_id,name, surname, email, address,phone,date_of_birth,gender,postcode } = req.body;
+    const { user_id, speciality_id,name, surname, email, address,phone,date_of_birth,gender,postcode } = req.body;
 
-        const updatePacient = await Pacient.update({user_id, speciality_id,name:name,surname:surname,email:email,address:address,phone:phone,date_of_birth:date_of_birth,gender:gender,postcode:postcode}, {where:{id:pacientId}})
+    const updatePacient = await Pacient.update({user_id, speciality_id,name:name,surname:surname,email:email,address:address,phone:phone,date_of_birth:date_of_birth,gender:gender,postcode:postcode}, {where:{id:pacientId}})
 
-        return res.json(updatePacient)
+    return res.json(updatePacient)
 
-    }catch(error){
+}catch(error){
 
-        return res.status(500).send(error.message)
-    }
+    return res.status(500).send(error.message)
+}
 };
 
 //Function for Pacient delete only for dentist rol
 
 pacientController.deletePacientById = async(req, res) => {
 
-    try{
+try{
 
-        const pacientId = req.params.id
-    
-        const deletePacient = await Pacient.destroy({where: { id: pacientId}})
+    const pacientId = req.params.id
 
-        return res.json(deletePacient);
+    const deletePacient = await Pacient.destroy({where: { id: pacientId}})
 
-    }catch(error){
+    return res.json(deletePacient);
 
-        return res.status(500).send(error.message)
-    }
+}catch(error){
+
+    return res.status(500).send(error.message)
+}
 };
 
 

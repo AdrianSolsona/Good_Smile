@@ -1,3 +1,4 @@
+
 const isAdmin = (req, res, next) => {
     try {
         //if the user_id is not 1, you are not a admin and you will not be able to login
@@ -20,3 +21,4 @@ const isAdmin = (req, res, next) => {
     }
 }
 module.exports = isAdmin;
+

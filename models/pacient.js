@@ -22,7 +22,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   Pacient.init({
     user_id : DataTypes.INTEGER,
-    
   }, {
     sequelize,
     modelName: 'Pacient',

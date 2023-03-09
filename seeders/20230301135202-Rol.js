@@ -9,7 +9,10 @@ module.exports = {
      *
      * Example:*/
     await queryInterface.bulkInsert('Rols', [
-      {id: 1,
+      {type: "SuperAdmin"},
+        {type: "Admin"},
+        {type: "User"},
+      /*{id: 1,
         privilege: "admin", 
         createdAt: "2023-02-22 00:00:00", 
         updatedAt: "2023-02-22 00:00:00"},
@@ -20,7 +23,7 @@ module.exports = {
       {id: 3,
         privilege: "user", 
         createdAt: "2023-02-22 00:00:00", 
-        updatedAt: "2023-02-22 00:00:00"}
+        updatedAt: "2023-02-22 00:00:00"}*/
   ], {});
   },
 

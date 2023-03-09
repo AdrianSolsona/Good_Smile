@@ -1,3 +1,5 @@
+
+
 const { Dentist, Appointment, Speciality, Pacient, Treatment } = require("../models");
 
 const dentistController = {};
@@ -42,6 +44,8 @@ dentistController.getDentist = async(req, res)=> {
 };
 
 //Function to display the dentist by dentist id
+
+
 
 dentistController.getDentistById = async (req, res) => {
 
