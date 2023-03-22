@@ -81,7 +81,7 @@ userController.getUserById = async (req, res) => {
 
     try{
 
-        const userId = req.params.id;
+        const userId = req.userId;
 
         const user = await User.findByPk(userId,
             {
