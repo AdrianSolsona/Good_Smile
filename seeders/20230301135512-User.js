@@ -27,7 +27,7 @@ module.exports = {
         surname: "solso",
         address: "Av maeia",
         phone: "76858594",
-        date_of_birth: "07/10/2020",
+        
         gender: "male",
         postcode: "12005", 
         createdAt: "2023-02-22 00:00:00", 
@@ -41,7 +41,7 @@ module.exports = {
         surname: "solso",
         address: "Av maeia",
         phone: "76858594",
-        date_of_birth: "07/10/2020",
+        
         gender: "male",
         postcode: "12005", 
         createdAt: "2023-02-22 00:00:00", 
@@ -55,7 +55,7 @@ module.exports = {
         surname: "solso",
         address: "Av maeia",
         phone: "76858594",
-        date_of_birth: "07/10/2020",
+        
         gender: "male",
         postcode: "12005", 
         createdAt: "2023-02-22 00:00:00", 
@@ -69,7 +69,7 @@ module.exports = {
         surname: "solso",
         address: "Av maeia",
         phone: "76858594",
-        date_of_birth: "07/10/2020",
+        
         gender: "male",
         postcode: "12005", 
         createdAt: "2023-02-22 00:00:00", 

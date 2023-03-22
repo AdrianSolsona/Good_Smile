@@ -41,6 +41,40 @@ userController.createUser = async (req,res) => {
     }
 };
 
+
+userController.getUser = async (req, res) => {
+
+    try{
+    let userActives = await User.findAll(
+        {
+            include: [
+                Rol,
+                {
+                    model: Rol,
+                    attributes: {
+                        exclude: ["id", "createdAt", "updatedAt"]
+                    },
+                },
+            ],
+            attributes: {
+                exclude: ["rol_id", "password", "createdAt", "updatedAt"]
+            }
+        })
+
+    if (!userActives){
+        return res.send("User Not Found")
+    }
+
+    return res.json(userActives);
+
+}catch(error){
+    return res.status(500).send(error.message)
+}   
+        
+            
+}   
+    
+
 //Function to display the user by user id
 
 userController.getUserById = async (req, res) => {

@@ -30,9 +30,6 @@ module.exports = {
           key: "id"
         }
       },
-      hour: {
-        type: Sequelize.STRING
-      },
       status: {
         type: Sequelize.STRING
       },
@@ -40,7 +37,7 @@ module.exports = {
         type: Sequelize.TEXT
       },
       date: {
-        type: Sequelize.STRING
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,

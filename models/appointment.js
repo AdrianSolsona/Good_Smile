@@ -28,10 +28,9 @@ module.exports = (sequelize, DataTypes) => {
     pacient_id : DataTypes.INTEGER,
     dentist_id: DataTypes.INTEGER,
     treatment_id : DataTypes.INTEGER,
-    hour: DataTypes.STRING,
     status: DataTypes.STRING,
     observations: DataTypes.TEXT,
-    date: DataTypes.STRING
+    date: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Appointment',

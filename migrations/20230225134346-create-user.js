@@ -38,9 +38,7 @@ module.exports = {
       phone: {
         type: Sequelize.STRING
       },
-      date_of_birth: {
-        type: Sequelize.STRING
-      },
+      
       gender: {
         type: Sequelize.STRING
       },

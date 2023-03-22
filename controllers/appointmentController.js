@@ -7,13 +7,12 @@ const appointmentController = {};
 appointmentController.createAppointment = async (req, res) => {
 
     try {
-        const {pacient_id,dentist_id,treatment_id,hour,status,observations,date} = req.body;
+        const {pacient_id,dentist_id,treatment_id,status,observations,date} = req.body;
 
         const newAppointment = {
             pacient_id : pacient_id,
             dentist_id: dentist_id,
             treatment_id : treatment_id,
-            hour : hour,
             status : status,
             observations : observations,
             date : date
@@ -35,7 +34,7 @@ appointmentController.getAppointment = async (req, res) => {
 
 let citasActivas = await Appointment.findAll({
     
-    attributes: ['pacient_id', 'dentist_id', "treatment_id", "hour", "status"]
+    attributes: ['pacient_id', 'dentist_id', "treatment_id", "status"]
   });
   res.status(200).json({
     message: `These are all the appointment in the calendar`,
@@ -114,9 +113,9 @@ appointmentController.putAppointmentById = async (req, res) =>{
 
         const pacientId = paciente.id;
         
-        const {hour,status,observations,date} = req.body;
+        const {status,observations,date} = req.body;
 
-        const updateAppointment = await Appointment.update({hour:hour,status:status,observations:observations,date:date},{where: { pacient_id:pacientId}})
+        const updateAppointment = await Appointment.update({status:status,observations:observations,date:date},{where: { pacient_id:pacientId}})
 
         return res.json(updateAppointment)
 
