@@ -7,7 +7,7 @@ const router = require("express").Router();
 router.post("/appointments", verifyToken,appointmentController.createAppointment)
 router.get("/appointments/doctor", verifyToken,isDentist,appointmentController.getAppointment)
 router.get("/appointments", verifyToken,appointmentController.getAppointmentById)
-router.put("/appointments", verifyToken,appointmentController.putAppointmentById)
+router.put("/appointments/:id", verifyToken,appointmentController.putAppointmentById)
 router.delete("/appointments", verifyToken,appointmentController.deleteAppointmentById)
 
 
