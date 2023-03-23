@@ -102,6 +102,8 @@ appointmentController.putAppointmentById = async (req, res) =>{
 
     try{
         const userId = req.userId;
+        const appointmentId = req.params.id
+        
 
         const paciente = await Pacient.findOne({ where: { user_id: userId } });
     
@@ -115,7 +117,7 @@ appointmentController.putAppointmentById = async (req, res) =>{
         
         const {status,observations,date} = req.body;
 
-        const updateAppointment = await Appointment.update({status:status,observations:observations,date:date},{where: { pacient_id:pacientId}})
+        const updateAppointment = await Appointment.update({status:status,observations:observations,date:date},{where: {id: appointmentId, pacient_id:pacientId}})
 
         return res.json(updateAppointment)
 

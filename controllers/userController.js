@@ -110,6 +110,45 @@ userController.getUserById = async (req, res) => {
     }   
 };
 
+userController.putUserById = async (req, res) =>{
+
+    try{
+
+        const userId = req.userId;
+
+        const { 
+            username,
+            password,
+            email,
+            name,
+            surname,
+            address,
+            phone,
+            date_of_birth,
+            gender,
+            postcode  } = req.body;
+            
+            const encryptedPassword = bcrypt.hashSync(password, 10);
+
+        const updateUser = await User.update({username ,
+            encryptedPassword,
+            email,
+            name,
+            surname,
+            address,
+            phone,
+            date_of_birth,
+            gender,
+            postcode}, {where:{id:userId}})
+
+        return res.json(updateUser)
+
+    }catch(error){
+
+        return res.status(500).send(error.message)
+    }
+};
+
 //Function for user delete
 
 userController.deleteUserById = async(req, res) => {
