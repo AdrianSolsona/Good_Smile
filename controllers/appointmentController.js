@@ -106,7 +106,7 @@ appointmentController.putAppointmentById = async (req, res) =>{
         
 
         const paciente = await Pacient.findOne({ where: { user_id: userId } });
-    
+        
         if (!paciente) {
 
           // If a patient record is not found in appointment, I return an error message.
@@ -115,9 +115,9 @@ appointmentController.putAppointmentById = async (req, res) =>{
 
         const pacientId = paciente.id;
         
-        const {status,observations,date} = req.body;
+        const {date} = req.body;
 
-        const updateAppointment = await Appointment.update({status:status,observations:observations,date:date},{where: {id: appointmentId, pacient_id:pacientId}})
+        const updateAppointment = await Appointment.update({date:date},{where: {id: appointmentId, pacient_id:pacientId}})
 
         return res.json(updateAppointment)
 
