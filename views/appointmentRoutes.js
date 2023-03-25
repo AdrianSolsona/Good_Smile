@@ -8,7 +8,7 @@ router.post("/appointments", verifyToken,appointmentController.createAppointment
 router.get("/appointments/doctor", verifyToken,isDentist,appointmentController.getAppointment)
 router.get("/appointments", verifyToken,appointmentController.getAppointmentById)
 router.put("/appointments/:id", verifyToken,appointmentController.putAppointmentById)
-router.delete("/appointments", verifyToken,appointmentController.deleteAppointmentById)
+router.delete("/appointments/:id", verifyToken,appointmentController.deleteAppointmentById)
 
 
 module.exports = router

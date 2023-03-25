@@ -134,6 +134,7 @@ appointmentController.deleteAppointmentById = async(req, res) => {
     try{
 
         const userId = req.userId;
+        const appointmentId = req.params.id
 
         const paciente = await Pacient.findOne({ where: { user_id: userId } });
     
@@ -145,7 +146,7 @@ appointmentController.deleteAppointmentById = async(req, res) => {
 
         const pacientId = paciente.id;
     
-        const deleteAppointment = await Appointment.destroy({where: { pacient_id:pacientId}})
+        const deleteAppointment = await Appointment.destroy({where: { id: appointmentId,pacient_id:pacientId}})
 
         return res.json(deleteAppointment);
 

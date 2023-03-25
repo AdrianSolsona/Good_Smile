@@ -69,7 +69,6 @@ module.exports = {
         surname: "solso",
         address: "Av maeia",
         phone: "76858594",
-        
         gender: "male",
         postcode: "12005", 
         createdAt: "2023-02-22 00:00:00", 
