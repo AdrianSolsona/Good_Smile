@@ -32,7 +32,7 @@ dentistController.createDentist = async (req, res) => {
 dentistController.getDentist = async(req, res)=> {
     
     try{
-
+        
         const dentist = await Dentist.findAll();
 
         return res.json(dentist);

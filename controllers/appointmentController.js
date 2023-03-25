@@ -96,6 +96,59 @@ appointmentController.getAppointmentById = async (req, res) => {
     }
   };
 
+
+  appointmentController.getAppointmentAsDoctor = async (req, res) => {
+    try {
+        const userId = req.userId;
+
+        // I search the Patients table for the record corresponding to the token's userId.
+        const dentist = await Dentist.findOne({ where: { user_id: userId } });
+    
+        if (!dentist) {
+
+          // If a record is not found in Patients, I return an error message.
+          return res.status(404).json({ message: "No patients were found associated with this user"});
+        }
+    
+        // If I find a record in Patients, I get its pacient_id
+        const dentistId = dentist.id;
+    
+      const appointments = await Appointment.findAll({
+        where: {
+          dentist_id: dentistId,
+        },
+        include: [
+          Treatment,
+          {
+            model: Treatment,
+            attributes: {
+              exclude: ['createdAt', 'updatedAt'],
+            },
+          },
+          {
+            model: Pacient,
+            attributes: {
+              exclude: ['user_id', 'createdAt', 'updatedAt'],
+            },
+          },
+          {
+            model: Dentist,
+            attributes: {
+              exclude: ['user_id', 'registration_number', 'createdAt', 'updatedAt'],
+            },
+          },
+        ],
+        attributes: {
+          exclude: ['pacient_id', 'dentist_id', 'treatment_id', 'createdAt', 'updatedAt'],
+        },
+      });
+  
+      res.json(appointments);
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+  };
+
 //Function for Appointment modify 
 
 appointmentController.putAppointmentById = async (req, res) =>{
