@@ -24,7 +24,8 @@ userController.createUser = async (req,res) => {
         phone : phone,
         date_of_birth : date_of_birth,
         gender : gender,
-        postcode : postcode
+        postcode : postcode,
+        rol_id: 3
         })
 
 
